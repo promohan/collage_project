@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONM Program</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Load a Monospace Font for code display -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    
+    <style>
+       
+
+    </style>
+</head>
+<body class="app-container">
+
+    <!-- Sidebar/Navigation -->
+    <aside class="sidebar">
+           
+        <div class="logo">
+                C Program <span class="logo-accent">v1.0</span>
+            </div>
+            <nav>
+                <div id="nav-dashboard" class="nav-item active" onclick="navigate('dashboard')">
+                    <!-- Lucide Home Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    Dashboard
+                </div>
+                <h3 class="nav-category">C Programs</h3>
+            
+                <h3 class="nav-category">UNIT 1</h3>
+                <div id="nav-program1" class="nav-item" onclick="navigate('program1')">
+                    <!-- Lucide Code Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    Program 1: Hello World
+                </div>
+
+                <!--    mohan your are deleted 2 to 4  program !  -->
+                <!-- <div id="nav-program2" class="nav-item" onclick="navigate('program2')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></svg>
+                    Program 2: Simple Calculator
+                </div>
+
+                <div id="nav-program3" class="nav-item" onclick="navigate('program3')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>
+                    Program 3: Factorial
+                </div>
+                <div id="nav-program4" class="nav-item" onclick="navigate('program4')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="M9 18V5l-2 2"/><path d="M12 21l-3-3h3a2 2 0 0 0 2-2v-3h3l3 3"/></svg>
+                    Program 4: Prime Checker
+                </div> -->
+
+                <div id="nav-program2" class="nav-item" onclick="navigate('program2')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 17v-4"/><path d="M12 10V7"/></svg>
+                     Program 2:     Decimal to Binary
+                </div>
+                <div id="nav-program3" class="nav-item" onclick="navigate('program3')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 17v-4"/><path d="M12 10V7"/></svg>
+                    Program 3:  Binary to Decimal 
+                </div>
+                <div id="nav-program4" class="nav-item" onclick="navigate('program4')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 17v-4"/><path d="M12 10V7"/></svg>
+                    Program 4:  Dec. Fraction to Binary 
+                </div>
+                <div id="nav-program5" class="nav-item" onclick="navigate('program5')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 17v-4"/><path d="M12 10V7"/><circle cx="12" cy="19" r="1"/></svg>
+                    Program 5: . Binary Fraction to Dec
+                </div>
+
+                <!-- <h3 class="nav-category">Binary Arithmetic</h3> -->
+                <div id="nav-program6" class="nav-item" onclick="navigate('program6')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 17v-4"/><path d="M12 10V7"/><circle cx="12" cy="19" r="1"/></svg>
+                    Program 6: One's Complement
+                </div>
+                <div id="nav-program7" class="nav-item" onclick="navigate('program7')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 17v-4"/><path d="M12 10V7"/><circle cx="12" cy="19" r="1"/></svg>
+                    Program 7: Two's Complement
+                </div>
+
+                <div id="nav-program8" class="nav-item" onclick="navigate('program8')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 17v-4"/><path d="M12 10V7"/><circle cx="12" cy="19" r="1"/></svg>
+                    Program 8: Sum in Normalized Form
+                </div>
+
+                <div id="nav-program9" class="nav-item" onclick="navigate('program9')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 17v-4"/><path d="M12 10V7"/><circle cx="12" cy="19" r="1"/></svg>
+                    Program 9: Subtraction in Normalized Form
+                </div>
+
+                <div id="nav-program10" class="nav-item" onclick="navigate('program10')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 17v-4"/><path d="M12 10V7"/><circle cx="12" cy="19" r="1"/></svg>
+                    Program 10: Multiple in Normalized Form
+                </div>
+
+
+                <!-- UNIT 2 -->
+               <h3 class="nav-category">UNIT 2: Numerical Methods</h3>
+                <div id="nav-program11" class="nav-item" onclick="navigate('program11')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="M18 10h-6"/><path d="M12 18V6"/><path d="M12 18h6"/></svg>
+                    Program 11: Bisection Method
+                </div>
+                <div id="nav-program12" class="nav-item" onclick="navigate('program12')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="M18 10h-6"/><path d="M12 18V6"/><path d="M12 18h6"/></svg>
+                    Program 12: False Position Method
+                </div>
+                <div id="nav-program13" class="nav-item" onclick="navigate('program13')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="M18 10h-6"/><path d="M12 18V6"/><path d="M12 18h6"/></svg>
+                    Program 13: Newton's Raphson Method
+                </div>
+                <div id="nav-program14" class="nav-item" onclick="navigate('program14')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="M18 10h-6"/><path d="M12 18V6"/><path d="M12 18h6"/></svg>
+                    Program 14: Birge Vieta Method
+                </div>
+
+                <h3 class="nav-category">UNIT 3: Numerical Methods</h3>
+                <div id="nav-program15" class="nav-item" onclick="navigate('program15')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><line x1="17" y1="1" x2="17" y2="23"/><path d="M17 18V6h-5a4 4 0 0 0-4 4v4a4 4 0 0 0 4 4z"/></svg>
+                    Program 15: Gauss Elimination Method
+                </div>
+                <div id="nav-program16" class="nav-item" onclick="navigate('program16')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><line x1="17" y1="1" x2="17" y2="23"/><path d="M17 18V6h-5a4 4 0 0 0-4 4v4a4 4 0 0 0 4 4z"/></svg>
+                    Program 16: Gauss-Jordan Method
+                </div>
+                <div id="nav-program17" class="nav-item" onclick="navigate('program17')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><line x1="17" y1="1" x2="17" y2="23"/><path d="M17 18V6h-5a4 4 0 0 0-4 4v4a4 4 0 0 0 4 4z"/></svg>
+                    Program 17: Gauss-Seidel Method
+                </div>
+              
+                
+
+                
+
+
+
+
+
+
+            </nav>
+
+
+            <div class="mt-8 pt-4 border-t border-gray-200 text-sm text-gray-500">
+                <p>Designed by a Future Developer.</p>
+            </div>
+
+
+
+
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="main-content">
+        <!-- Content will be injected here -->
+         <div class="mohan">
+            <h1>mohan</h1>
+         </div>
+    </main>
+
+   
+</body>
+</html>
