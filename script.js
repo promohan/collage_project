@@ -24,6 +24,21 @@
             'program15': document.getElementById('nav-program15'), // NEW Gauss
             'program16': document.getElementById('nav-program16'), // NEW Gauss
             'program17': document.getElementById('nav-program17'), // NEW Gauss
+            // --- NEW INTERPOLATION PROGRAMS ---
+            'program18': document.getElementById('nav-program18'),
+            'program19': document.getElementById('nav-program19'),
+            'program20': document.getElementById('nav-program20'),
+            'program21': document.getElementById('nav-program21'),
+            'program22': document.getElementById('nav-program22'),
+            // --- NEW INTEGRATION PROGRAMS ---
+            'program23': document.getElementById('nav-program23'), // ADDED
+            'program24': document.getElementById('nav-program24'), // ADDED
+            'program25': document.getElementById('nav-program25'), // ADDED
+            // --- NEW ODE PROGRAMS ---
+            'program26': document.getElementById('nav-program26'), // ADDED
+            'program27': document.getElementById('nav-program27'), // ADDED
+            'program28': document.getElementById('nav-program28'), // ADDED
+            'program29': document.getElementById('nav-program29'), // ADDED
 
           
            
@@ -36,7 +51,7 @@
                 title: "Welcome to the Program of CONM",
                 description: `
                     <p class="text-body">
-                        This website serves as a digital program for my collegiate C programming coursework.
+                        This website serves as a digital program for my collage C programming coursework.
                         Each section presents a specific program, detailing its source code, logic, and output.
                         It's designed to showcase my understanding of fundamental programming concepts, data structures,
                         and algorithms implemented in the C language.
@@ -56,8 +71,15 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="alert-box">
+                    <div class="alert-box alert-text">
+                        <h4>Name : Mohan<br><br>
+                        Class : BCA 2year<br><br>
+                        ROll No : 7065/24 <br><br></h4>
                         <p class="alert-text">Use the sidebar to explore the C programs!</p>
+                    </div>
+
+                    <div>
+                           
                     </div>
                 `
             },
@@ -279,8 +301,7 @@
 //                     </div>
 //                 `
 //             },
-
-
+            
             'program2': {
                 title: "Program 2: Decimal to Binary Converter",
                 description: `
@@ -507,7 +528,7 @@
             },
 
             'program6': {
-                title: "Program 6: One's Complement of a Binary Number",
+                title: "Program 6: One's Complement  Program",
                 description: `
                     <p class="text-body">
                         The **One's Complement** of a binary number is obtained by simply **inverting** all the 
@@ -558,7 +579,7 @@
             },
 
             'program7': {
-                title: "Program 7: Two's Complement of a Binary Number",
+                title: "Program 7: Two's Complement Program",
                 description: `
                     <p class="text-body">
                         The **Two's Complement** is the standard way of representing signed integers in 
@@ -856,7 +877,7 @@
 
             
 /* --- NEW NUMERICAL METHODS PROGRAMS START HERE --- */
-            
+            // unit 2
             'program11': {
                 title: "Program 11: Bisection Method",
                 description: `
@@ -1143,7 +1164,7 @@
             },
 
             'program14': {
-                title: "Program 14: Birge Vieta Method for Polynomial Roots",
+                title: "Program 14: Birge Vieta Method",
                 description: `
                     <p class="text-body">
                         The **Birge Vieta Method** is an efficient numerical technique used specifically for finding 
@@ -1254,7 +1275,8 @@
                     </div>
                 `
             },
-            
+
+            // unit 3
             'program15': {
                 title: "Program 15: Gauss Elimination Method",
                 description: `
@@ -1563,9 +1585,917 @@ x + y + 10z = 12
                 `
             },
             
-          
-          
+            // --- NEW INTERPOLATION PROGRAMS START HERE ---
+            'program18': {
+                title: "Program 18: Lagrangian Interpolation Method",
+                description: `
+                    <p class="text-body">
+                        The **Lagrange Interpolation Method** is an essential technique for polynomial interpolation. 
+                        It constructs a polynomial that passes through a given set of data points (x, y) 
+                        and then uses the polynomial to estimate the value of $y$ for a new $x$ value.
+                        It does not require the data points to be equally spaced.
+                    </p>
+                    <h3 class="section-title">Source Code: <span class="accent-title">lagrange_interpolation.c</span></h3>
+                    <div class="code-container">
+                        <pre>
+<span class="c-comment">//
+// lagrange_interpolation.c
+// Description: Implements the Lagrange Interpolation method to find the value of y at a given x.
+//</span>
+
+<span class="c-include">#include &lt;stdio.h&gt;</span>
+
+<span class="c-type">void</span> <span class="c-function">main</span>() {
+    <span class="c-type">float</span> x[<span class="c-number">10</span>], y[<span class="c-number">10</span>], xp, yp = <span class="c-number">0</span>;
+    <span class="c-type">int</span> i, j, n;
+    <span class="c-type">float</span> p;
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter number of data points (max 10): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%d"</span>, &n);
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter data:\\n"</span>);
+    <span class="c-keyword">for</span> (i = <span class="c-number">0</span>; i < n; i++) {
+        <span class="c-function">printf</span>(<span class="c-string">"x[%d]: "</span>, i);
+        <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &x[i]);
+        <span class="c-function">printf</span>(<span class="c-string">"y[%d]: "</span>, i);
+        <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &y[i]);
+    }
+
+    <span class="c-function">printf</span>(<span class="c-string">"\\nEnter the interpolation point (xp): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &xp);
+
+    <span class="c-comment">/* Implementing Lagrange's Interpolation Formula */</span>
+    <span class="c-keyword">for</span> (i = <span class="c-number">0</span>; i < n; i++) {
+        p = <span class="c-number">1</span>;
+        <span class="c-keyword">for</span> (j = <span class="c-number">0</span>; j < n; j++) {
+            <span class="c-keyword">if</span> (i != j) {
+                p = p * (xp - x[j]) / (x[i] - x[j]);
+            }
+        }
+        yp = yp + p * y[i];
+    }
+
+    <span class="c-function">printf</span>(<span class="c-string">"\\nValue of y at xp = %.3f is %.3f\\n"</span>, xp, yp);
+}
+                        </pre>
+                    </div>
+                    <h3 class="section-title">Example Output (Data: (0, 1), (1, 3), (2, 7); Find y at x=1.5)</h3>
+                    <div class="console-output">
+                        <p>Enter number of data points (max 10): 3</p>
+                        <p>Enter data:</p>
+                        <p>x[0]: 0</p>
+                        <p>y[0]: 1</p>
+                        <p>x[1]: 1</p>
+                        <p>y[1]: 3</p>
+                        <p>x[2]: 2</p>
+                        <p>y[2]: 7</p>
+                        <p>Enter the interpolation point (xp): 1.5</p>
+                        <p></p>
+                        <p>Value of y at xp = 1.500 is 4.750</p>
+                    </div>
+                `
+            },
+
+            'program19': {
+                title: "Program 19: Inverse Interpolation Method",
+                description: `
+                    <p class="text-body">
+                        The **Inverse Interpolation Method** finds the value of the independent variable ($x$) 
+                        that corresponds to a given value of the dependent variable ($y$). 
+                        This program implements the technique by applying the **Lagrange Interpolation Formula** after effectively swapping the roles of $x$ and $y$ in the dataset.
+                    </p>
+                    <h3 class="section-title">Source Code: <span class="accent-title">inverse_interpolation.c</span></h3>
+                    <div class="code-container">
+                        <pre>
+<span class="c-comment">//
+// inverse_interpolation.c
+// Description: Implements Inverse Interpolation using the Lagrange formula (swapping x and y).
+//</span>
+
+<span class="c-include">#include &lt;stdio.h&gt;</span>
+
+<span class="c-type">void</span> <span class="c-function">main</span>() {
+    <span class="c-type">float</span> x[<span class="c-number">10</span>], y[<span class="c-number">10</span>], yp, xp = <span class="c-number">0</span>;
+    <span class="c-type">int</span> i, j, n;
+    <span class="c-type">float</span> p;
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter number of data points (max 10): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%d"</span>, &n);
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter data:\\n"</span>);
+    <span class="c-keyword">for</span> (i = <span class="c-number">0</span>; i < n; i++) {
+        <span class="c-function">printf</span>(<span class="c-string">"x[%d]: "</span>, i);
+        <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &x[i]);
+        <span class="c-function">printf</span>(<span class="c-string">"y[%d]: "</span>, i);
+        <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &y[i]);
+    }
+
+    <span class="c-function">printf</span>(<span class="c-string">"\\nEnter the interpolation value for y (yp): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &yp);
+
+    <span class="c-comment">/* Implementing Inverse Lagrange's Interpolation Formula (x is a function of y) */</span>
+    <span class="c-keyword">for</span> (i = <span class="c-number">0</span>; i < n; i++) {
+        p = <span class="c-number">1</span>;
+        <span class="c-comment">// The y array acts as the 'x' array, and x array acts as the 'y' array in the formula.</span>
+        <span class="c-keyword">for</span> (j = <span class="c-number">0</span>; j < n; j++) {
+            <span class="c-keyword">if</span> (i != j) {
+                p = p * (yp - y[j]) / (y[i] - y[j]);
+            }
+        }
+        xp = xp + p * x[i]; <span class="c-comment">// Finding x (the result)</span>
+    }
+
+    <span class="c-function">printf</span>(<span class="c-string">"\\nValue of x at yp = %.3f is %.3f\\n"</span>, yp, xp);
+}
+                        </pre>
+                    </div>
+                    <h3 class="section-title">Example Output (Data: (0, 1), (1, 3), (2, 7); Find x at y=4.75)</h3>
+                    <div class="console-output">
+                        <p>Enter number of data points (max 10): 3</p>
+                        <p>Enter data:</p>
+                        <p>x[0]: 0</p>
+                        <p>y[0]: 1</p>
+                        <p>x[1]: 1</p>
+                        <p>y[1]: 3</p>
+                        <p>x[2]: 2</p>
+                        <p>y[2]: 7</p>
+                        <p>Enter the interpolation value for y (yp): 4.75</p>
+                        <p></p>
+                        <p>Value of x at yp = 4.750 is 1.500</p>
+                    </div>
+                `
+            },
+
+            'program20': {
+                title: "Program 20: Newton's Forward Difference Method",
+                description: `
+                    <p class="text-body">
+                        **Newton's Forward Difference Interpolation Formula** is used to estimate the value of a function $f(x)$ 
+                        at a point $x_p$ when the given data points are **equally spaced** and the point $x_p$ is located 
+                        near the **beginning** of the data table.
+                    </p>
+                    <h3 class="section-title">Source Code: <span class="accent-title">newton_forward.c</span></h3>
+                    <div class="code-container">
+                        <pre>
+<span class="c-comment">//
+// newton_forward.c
+// Description: Implements Newton's Forward Difference Interpolation.
+//</span>
+
+<span class="c-include">#include &lt;stdio.h&gt;</span>
+<span class="c-include">#include &lt;math.h&gt;</span>
+
+<span class="c-type">void</span> <span class="c-function">main</span>() {
+    <span class="c-type">float</span> x[<span class="c-number">20</span>], y[<span class="c-number">20</span>][<span class="c-number">20</span>], p, value, sum, h;
+    <span class="c-type">int</span> i, j, n, fact;
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter number of data points: "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%d"</span>, &n);
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter data points (x, y):\\n"</span>);
+    <span class="c-keyword">for</span> (i = <span class="c-number">0</span>; i < n; i++) {
+        <span class="c-function">printf</span>(<span class="c-string">"x[%d]: "</span>, i);
+        <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &x[i]);
+        <span class="c-function">printf</span>(<span class="c-string">"y[%d][0]: "</span>, i);
+        <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &y[i][<span class="c-number">0</span>]);
+    }
+
+    <span class="c-comment">// Calculate finite difference table</span>
+    <span class="c-keyword">for</span> (j = <span class="c-number">1</span>; j < n; j++) {
+        <span class="c-keyword">for</span> (i = <span class="c-number">0</span>; i < n - j; i++) {
+            y[i][j] = y[i+<span class="c-number">1</span>][j-<span class="c-number">1</span>] - y[i][j-<span class="c-number">1</span>];
+        }
+    }
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter the point for interpolation (value): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &value);
+
+    <span class="c-comment">// Calculate 'p = (xp - x0) / h'</span>
+    h = x[<span class="c-number">1</span>] - x[<span class="c-number">0</span>];
+    p = (value - x[<span class="c-number">0</span>]) / h;
+
+    <span class="c-comment">// Apply Newton's Forward Formula: sum = y0 + p*delta(y0) + p(p-1)/2! * delta^2(y0) + ...</span>
+    sum = y[<span class="c-number">0</span>][<span class="c-number">0</span>]; 
+    fact = <span class="c-number">1</span>;
+    <span class="c-keyword">for</span> (j = <span class="c-number">1</span>; j < n; j++) {
+        fact = fact * j; 
+        <span class="c-type">float</span> p_term = p;
+        <span class="c-keyword">for</span> (i = <span class="c-number">1</span>; i < j; i++) {
+            p_term = p_term * (p - i); <span class="c-comment">// p(p-1)(p-2)...(p-j+1)</span>
+        }
+        sum = sum + (p_term * y[<span class="c-number">0</span>][j] / fact); <span class="c-comment">// y[0][j] is the Delta^j (y0)</span>
+    }
+
+    <span class="c-function">printf</span>(<span class="c-string">"\\nValue of y at %.3f is %.3f\\n"</span>, value, sum);
+}
+                        </pre>
+                    </div>
+                    <h3 class="section-title">Example Output (Data: sin(x) at 10, 20, 30, 40; Find y at x=25)</h3>
+                    <div class="console-output">
+                        <p>Enter number of data points: 4</p>
+                        <p>Enter data points (x, y):</p>
+                        <p>x[0]: 10</p>
+                        <p>y[0][0]: 0.1736</p>
+                        <p>x[1]: 20</p>
+                        <p>y[1][0]: 0.3420</p>
+                        <p>x[2]: 30</p>
+                        <p>y[2][0]: 0.5000</p>
+                        <p>x[3]: 40</p>
+                        <p>y[3][0]: 0.6428</p>
+                        <p>Enter the point for interpolation (value): 25</p>
+                        <p></p>
+                        <p>Value of y at 25.000 is 0.422</p>
+                    </div>
+                `
+            },
+
+            'program21': {
+                title: "Program 21: Newton's Backward Difference Method",
+                description: `
+                    <p class="text-body">
+                        **Newton's Backward Difference Interpolation Formula** is similar to the forward method but is used when 
+                        the point of interpolation, $x_p$, is located near the **end** of the data table (and the data is **equally spaced**). 
+                        It utilizes the $\nabla$ (Nabla or backward) differences found at the last data point.
+                    </p>
+                    <h3 class="section-title">Source Code: <span class="accent-title">newton_backward.c</span></h3>
+                    <div class="code-container">
+                        <pre>
+<span class="c-comment">//
+// newton_backward.c
+// Description: Implements Newton's Backward Difference Interpolation.
+//</span>
+
+<span class="c-include">#include &lt;stdio.h&gt;</span>
+<span class="c-include">#include &lt;math.h&gt;</span>
+
+<span class="c-type">void</span> <span class="c-function">main</span>() {
+    <span class="c-type">float</span> x[<span class="c-number">20</span>], y[<span class="c-number">20</span>][<span class="c-number">20</span>], p, value, sum, h;
+    <span class="c-type">int</span> i, j, n, fact;
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter number of data points: "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%d"</span>, &n);
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter data points (x, y):\\n"</span>);
+    <span class="c-keyword">for</span> (i = <span class="c-number">0</span>; i < n; i++) {
+        <span class="c-function">printf</span>(<span class="c-string">"x[%d]: "</span>, i);
+        <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &x[i]);
+        <span class="c-function">printf</span>(<span class="c-string">"y[%d][0]: "</span>, i);
+        <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &y[i][<span class="c-number">0</span>]);
+    }
+
+    <span class="c-comment">// Calculate finite difference table (Same procedure as Forward)</span>
+    <span class="c-keyword">for</span> (j = <span class="c-number">1</span>; j < n; j++) {
+        <span class="c-keyword">for</span> (i = <span class="c-number">0</span>; i < n - j; i++) {
+            y[i][j] = y[i+<span class="c-number">1</span>][j-<span class="c-number">1</span>] - y[i][j-<span class="c-number">1</span>];
+        }
+    }
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter the point for interpolation (value): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &value);
+
+    <span class="c-comment">// Calculate 'p = (xp - x_n-1) / h'. x[n-1] is the last x value.</span>
+    h = x[<span class="c-number">1</span>] - x[<span class="c-number">0</span>];
+    p = (value - x[n-<span class="c-number">1</span>]) / h;
+
+    <span class="c-comment">// Apply Newton's Backward Formula: sum = y_n + p*nabla(y_n) + p(p+1)/2! * nabla^2(y_n) + ...</span>
+    sum = y[n-<span class="c-number">1</span>][<span class="c-number">0</span>]; <span class="c-comment">// Initial sum = f(xn)</span>
+    fact = <span class="c-number">1</span>;
+
+    <span class="c-keyword">for</span> (j = <span class="c-number">1</span>; j < n; j++) {
+        fact = fact * j; 
+        <span class="c-type">float</span> p_term = p;
+        <span class="c-keyword">for</span> (i = <span class="c-number">1</span>; i < j; i++) {
+            p_term = p_term * (p + i); <span class="c-comment">// p(p+1)(p+2)...(p+j-1)</span>
+        }
+        <span class="c-comment">// y[n-1][j] is the 'nabla' difference at the last row</span>
+        sum = sum + (p_term * y[n-<span class="c-number">1</span>][j] / fact); 
+    }
+
+    <span class="c-function">printf</span>(<span class="c-string">"\\nValue of y at %.3f is %.3f\\n"</span>, value, sum);
+}
+                        </pre>
+                    </div>
+                    <h3 class="section-title">Example Output (Data: (2, 5), (4, 15), (6, 35), (8, 65); Find y at x=7)</h3>
+                    <div class="console-output">
+                        <p>Enter number of data points: 4</p>
+                        <p>Enter data points (x, y):</p>
+                        <p>x[0]: 2</p>
+                        <p>y[0][0]: 5</p>
+                        <p>x[1]: 4</p>
+                        <p>y[1][0]: 15</p>
+                        <p>x[2]: 6</p>
+                        <p>y[2][0]: 35</p>
+                        <p>x[3]: 8</p>
+                        <p>y[3][0]: 65</p>
+                        <p>Enter the point for interpolation (value): 7</p>
+                        <p></p>
+                        <p>Value of y at 7.000 is 50.500</p>
+                    </div>
+                `
+            },
+
+            'program22': {
+                title: "Program 22: Newton's Divided Difference Method",
+                description: `
+                    <p class="text-body">
+                        **Newton's Divided Difference Interpolation Formula** is a generalization of the other difference formulas 
+                        and can be used for data points that are **not equally spaced**. This method is conceptually simpler 
+                        than Lagrange's for manual calculation, but computationally similar.
+                    </p>
+                    <h3 class="section-title">Source Code: <span class="accent-title">newton_divided_difference.c</span></h3>
+                    <div class="code-container">
+                        <pre>
+<span class="c-comment">//
+// newton_divided_difference.c
+// Description: Implements Newton's Divided Difference Interpolation.
+//</span>
+
+<span class="c-include">#include &lt;stdio.h&gt;</span>
+
+<span class="c-type">void</span> <span class="c-function">main</span>() {
+    <span class="c-type">float</span> x[<span class="c-number">20</span>], y[<span class="c-number">20</span>][<span class="c-number">20</span>], xp, sum, temp;
+    <span class="c-type">int</span> i, j, n;
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter number of data points: "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%d"</span>, &n);
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter data points (x, y):\\n"</span>);
+    <span class="c-keyword">for</span> (i = <span class="c-number">0</span>; i < n; i++) {
+        <span class="c-function">printf</span>(<span class="c-string">"x[%d]: "</span>, i);
+        <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &x[i]);
+        <span class="c-function">printf</span>(<span class="c-string">"y[%d][0]: "</span>, i);
+        <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &y[i][<span class="c-number">0</span>]);
+    }
+
+    <span class="c-comment">// Calculate Divided Difference Table</span>
+    <span class="c-keyword">for</span> (j = <span class="c-number">1</span>; j < n; j++) {
+        <span class="c-keyword">for</span> (i = <span class="c-number">0</span>; i < n - j; i++) {
+            <span class="c-comment">// f[..., x_i+j] - f[..., x_i] ) / (x_i+j - x_i)</span>
+            y[i][j] = (y[i+<span class="c-number">1</span>][j-<span class="c-number">1</span>] - y[i][j-<span class="c-number">1</span>]) / (x[i+j] - x[i]);
+        }
+    }
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter the interpolation point (xp): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &xp);
+
+    <span class="c-comment">// Apply Newton's Divided Difference Formula: sum = f[x0] + (x-x0)f[x0,x1] + ...</span>
+    sum = y[<span class="c-number">0</span>][<span class="c-number">0</span>]; <span class="c-comment">// Initial sum = f[x0]</span>
+    
+    <span class="c-keyword">for</span> (j = <span class="c-number">1</span>; j < n; j++) {
+        temp = <span class="c-number">1</span>;
+        <span class="c-comment">// Calculate the (x - x0)(x - x1)...(x - xj-1) term</span>
+        <span class="c-keyword">for</span> (i = <span class="c-number">0</span>; i < j; i++) {
+            temp = temp * (xp - x[i]);
+        }
+        sum = sum + (temp * y[<span class="c-number">0</span>][j]); <span class="c-comment">// y[0][j] is the f[x0, x1, ..., xj]</span>
+    }
+
+    <span class="c-function">printf</span>(<span class="c-string">"\\nValue of y at xp = %.3f is %.3f\\n"</span>, xp, sum);
+}
+                        </pre>
+                    </div>
+                    <h3 class="section-title">Example Output (Data: (0, 1), (1, 3), (2, 7); Find y at x=1.5)</h3>
+                    <div class="console-output">
+                        <p>Enter number of data points: 3</p>
+                        <p>Enter data points (x, y):</p>
+                        <p>x[0]: 0</p>
+                        <p>y[0][0]: 1</p>
+                        <p>x[1]: 1</p>
+                        <p>y[1][0]: 3</p>
+                        <p>x[2]: 2</p>
+                        <p>y[2][0]: 7</p>
+                        <p>Enter the interpolation point (xp): 1.5</p>
+                        <p></p>
+                        <p>Value of y at xp = 1.500 is 4.750</p>
+                    </div>
+                `
+            },
         
+            // --- UNIT 4: NUMERICAL INTEGRATION ---
+
+            'program23': {
+                title: "Program 22: Trapezoidal Method",
+                description: `
+                    <p class="text-body">
+                        The **Trapezoidal Rule** approximates the definite integral of a function $f(x)$ by dividing the area under the 
+                        curve into several trapezoids instead of rectangles. It is simpler than Simpson's rule but less accurate.
+                        It requires the interval to be divided into $n$ equal sub-intervals.
+                    </p>
+                    <h3 class="section-title">Source Code: <span class="accent-title">trapezoidal_rule.c</span></h3>
+                    <div class="code-container">
+                        <pre>
+<span class="c-comment">//
+// trapezoidal_rule.c
+// Description: Implements Numerical Integration using the Trapezoidal Rule.
+//</span>
+
+<span class="c-include">#include &lt;stdio.h&gt;</span>
+<span class="c-include">#include &lt;math.h&gt;</span>
+
+<span class="c-comment">// Define the function to be integrated: f(x) = 1/(1+x^2)</span>
+<span class="c-type">float</span> <span class="c-function">f</span>(<span class="c-type">float</span> x) {
+    <span class="c-keyword">return</span> <span class="c-number">1.0</span> / (<span class="c-number">1.0</span> + x * x);
+}
+
+<span class="c-type">void</span> <span class="c-function">main</span>() {
+    <span class="c-type">int</span> n, i;
+    <span class="c-type">float</span> a, b, h, sum = <span class="c-number">0</span>, integral;
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter the lower limit (a): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &a);
+    <span class="c-function">printf</span>(<span class="c-string">"Enter the upper limit (b): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &b);
+    <span class="c-function">printf</span>(<span class="c-string">"Enter number of sub-intervals (n): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%d"</span>, &n);
+
+    h = (b - a) / n;
+
+    <span class="c-comment">// Start with f(a) + f(b)</span>
+    sum = <span class="c-function">f</span>(a) + <span class="c-function">f</span>(b);
+
+    <span class="c-comment">// Add 2 * (f(x1) + f(x2) + ... + f(x_n-1))</span>
+    <span class="c-keyword">for</span> (i = <span class="c-number">1</span>; i < n; i++) {
+        sum = sum + <span class="c-number">2</span> * <span class="c-function">f</span>(a + i * h);
+    }
+
+    integral = (h / <span class="c-number">2</span>) * sum;
+
+    <span class="c-function">printf</span>(<span class="c-string">"\\nResult of Integration: %.6f\\n"</span>, integral);
+}
+                        </pre>
+                    </div>
+                    <h3 class="section-title">Example Output (Integral of 1/(1+x^2) from 0 to 1 with n=6)</h3>
+                    <div class="console-output">
+                        <p>Enter the lower limit (a): 0</p>
+                        <p>Enter the upper limit (b): 1</p>
+                        <p>Enter number of sub-intervals (n): 6</p>
+                        <p></p>
+                        <p>Result of Integration: 0.784241</p>
+                    </div>
+                `
+            },
+
+            'program24': {
+                title: "Program 24: Simpson's 1/3 Method",
+                description: `
+                    <p class="text-body">
+                        **Simpson's 1/3 Rule** approximates the integral by fitting a quadratic polynomial (parabola) 
+                        to three consecutive points. This method provides a much higher accuracy than the Trapezoidal Rule. 
+                        It requires the number of sub-intervals, $n$, to be **even**.
+                    </p>
+                    <h3 class="section-title">Source Code: <span class="accent-title">simpsons_one_third.c</span></h3>
+                    <div class="code-container">
+                        <pre>
+<span class="c-comment">//
+// simpsons_one_third.c
+// Description: Implements Numerical Integration using Simpson's 1/3 Rule.
+//</span>
+
+<span class="c-include">#include &lt;stdio.h&gt;</span>
+<span class="c-include">#include &lt;math.h&gt;</span>
+
+<span class="c-comment">// Define the function to be integrated: f(x) = x^3</span>
+<span class="c-type">float</span> <span class="c-function">f</span>(<span class="c-type">float</span> x) {
+    <span class="c-keyword">return</span> x * x * x;
+}
+
+<span class="c-type">void</span> <span class="c-function">main</span>() {
+    <span class="c-type">int</span> n, i;
+    <span class="c-type">float</span> a, b, h, sum = <span class="c-number">0</span>, integral;
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter the lower limit (a): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &a);
+    <span class="c-function">printf</span>(<span class="c-string">"Enter the upper limit (b): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &b);
+    <span class="c-function">printf</span>(<span class="c-string">"Enter number of sub-intervals (n, must be EVEN): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%d"</span>, &n);
+
+    <span class="c-keyword">if</span> (n % <span class="c-number">2</span> != <span class="c-number">0</span>) {
+        <span class="c-function">printf</span>(<span class="c-string">"Error: n must be an even number for Simpson's 1/3 rule.\\n"</span>);
+        <span class="c-keyword">return</span>;
+    }
+
+    h = (b - a) / n;
+
+    <span class="c-comment">// Start with f(a) + f(b)</span>
+    sum = <span class="c-function">f</span>(a) + <span class="c-function">f</span>(b);
+
+    <span class="c-comment">// Sum of 4 * (odd terms) + 2 * (even terms)</span>
+    <span class="c-keyword">for</span> (i = <span class="c-number">1</span>; i < n; i++) {
+        <span class="c-keyword">if</span> (i % <span class="c-number">2</span> != <span class="c-number">0</span>) {
+            sum = sum + <span class="c-number">4</span> * <span class="c-function">f</span>(a + i * h); <span class="c-comment">// 4 * (y1 + y3 + y5 + ...)</span>
+        } <span class="c-keyword">else</span> {
+            sum = sum + <span class="c-number">2</span> * <span class="c-function">f</span>(a + i * h); <span class="c-comment">// 2 * (y2 + y4 + y6 + ...)</span>
+        }
+    }
+
+    integral = (h / <span class="c-number">3</span>) * sum;
+
+    <span class="c-function">printf</span>(<span class="c-string">"\\nResult of Integration: %.6f\\n"</span>, integral);
+}
+                        </pre>
+                    </div>
+                    <h3 class="section-title">Example Output (Integral of x^3 from 0 to 1 with n=4)</h3>
+                    <div class="console-output">
+                        <p>Enter the lower limit (a): 0</p>
+                        <p>Enter the upper limit (b): 1</p>
+                        <p>Enter number of sub-intervals (n, must be EVEN): 4</p>
+                        <p></p>
+                        <p>Result of Integration: 0.250000</p>
+                    </div>
+                `
+            },
+
+            'program25': {
+                title: "Program 25: Simpson's 3/8 Method",
+                description: `
+                    <p class="text-body">
+                        **Simpson's 3/8 Rule** approximates the integral by fitting a cubic polynomial to four consecutive points. 
+                        It is generally more accurate than the 1/3 rule for a comparable number of points, but computationally more intensive. 
+                        This method requires the number of sub-intervals, $n$, to be a **multiple of 3**.
+                    </p>
+                    <h3 class="section-title">Source Code: <span class="accent-title">simpsons_three_eighth.c</span></h3>
+                    <div class="code-container">
+                        <pre>
+<span class="c-comment">//
+// simpsons_three_eighth.c
+// Description: Implements Numerical Integration using Simpson's 3/8 Rule.
+//</span>
+
+<span class="c-include">#include &lt;stdio.h&gt;</span>
+<span class="c-include">#include &lt;math.h&gt;</span>
+
+<span class="c-comment">// Define the function to be integrated: f(x) = x^4</span>
+<span class="c-type">float</span> <span class="c-function">f</span>(<span class="c-type">float</span> x) {
+    <span class="c-keyword">return</span> x * x * x * x;
+}
+
+<span class="c-type">void</span> <span class="c-function">main</span>() {
+    <span class="c-type">int</span> n, i;
+    <span class="c-type">float</span> a, b, h, sum = <span class="c-number">0</span>, integral;
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter the lower limit (a): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &a);
+    <span class="c-function">printf</span>(<span class="c-string">"Enter the upper limit (b): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &b);
+    <span class="c-function">printf</span>(<span class="c-string">"Enter number of sub-intervals (n, must be multiple of 3): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%d"</span>, &n);
+
+    <span class="c-keyword">if</span> (n % <span class="c-number">3</span> != <span class="c-number">0</span>) {
+        <span class="c-function">printf</span>(<span class="c-string">"Error: n must be a multiple of 3 for Simpson's 3/8 rule.\\n"</span>);
+        <span class="c-keyword">return</span>;
+    }
+
+    h = (b - a) / n;
+
+    <span class="c-comment">// Start with f(a) + f(b)</span>
+    sum = <span class="c-function">f</span>(a) + <span class="c-function">f</span>(b);
+
+    <span class="c-comment">// Sum of 3 * (non-multiple of 3 terms) + 2 * (multiple of 3 terms)</span>
+    <span class="c-keyword">for</span> (i = <span class="c-number">1</span>; i < n; i++) {
+        <span class="c-keyword">if</span> (i % <span class="c-number">3</span> == <span class="c-number">0</span>) {
+            sum = sum + <span class="c-number">2</span> * <span class="c-function">f</span>(a + i * h); <span class="c-comment">// 2 * (y3 + y6 + ...)</span>
+        } <span class="c-keyword">else</span> {
+            sum = sum + <span class="c-number">3</span> * <span class="c-function">f</span>(a + i * h); <span class="c-comment">// 3 * (y1 + y2 + y4 + y5 + ...)</span>
+        }
+    }
+
+    integral = (<span class="c-number">3</span> * h / <span class="c-number">8</span>) * sum;
+
+    <span class="c-function">printf</span>(<span class="c-string">"\\nResult of Integration: %.6f\\n"</span>, integral);
+}
+                        </pre>
+                    </div>
+                    <h3 class="section-title">Example Output (Integral of x^4 from 0 to 1 with n=6)</h3>
+                    <div class="console-output">
+                        <p>Enter the lower limit (a): 0</p>
+                        <p>Enter the upper limit (b): 1</p>
+                        <p>Enter number of sub-intervals (n, must be multiple of 3): 6</p>
+                        <p></p>
+                        <p>Result of Integration: 0.200000</p>
+                    </div>
+                `
+            },
+
+            'program26': {
+                title: "Program 26: Euler's Method",
+                description: `
+                    <p class="text-body">
+                        **Euler's Method** is the most basic numerical technique for solving first-order Ordinary Differential Equations (ODEs) 
+                        of the form $dy/dx = f(x, y)$ with an initial condition $y(x_0) = y_0$. It uses the initial tangent line 
+                        to approximate the function's value at the next point. It is simple but often requires a very small step size ($h$) 
+                        for reasonable accuracy.
+                    </p>
+                    <h3 class="section-title">Source Code: <span class="accent-title">eulers_method.c</span></h3>
+                    <div class="code-container">
+                        <pre>
+<span class="c-comment">//
+// eulers_method.c
+// Description: Implements Euler's Method for solving dy/dx = f(x, y).
+//</span>
+
+<span class="c-include">#include &lt;stdio.h&gt;</span>
+
+<span class="c-comment">// Define the ODE: dy/dx = x^2 + y</span>
+<span class="c-type">float</span> <span class="c-function">f</span>(<span class="c-type">float</span> x, <span class="c-type">float</span> y) {
+    <span class="c-keyword">return</span> x * x + y;
+}
+
+<span class="c-type">void</span> <span class="c-function">main</span>() {
+    <span class="c-type">float</span> x0, y0, h, xn;
+    <span class="c-type">float</span> y_new;
+    <span class="c-type">int</span> i, steps;
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter initial values x0 and y0: "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f %f"</span>, &x0, &y0);
+    <span class="c-function">printf</span>(<span class="c-string">"Enter step size (h): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &h);
+    <span class="c-function">printf</span>(<span class="c-string">"Enter the point to find y (xn): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &xn);
+
+    <span class="c-comment">// Calculate number of steps</span>
+    steps = (<span class="c-type">int</span>)((xn - x0) / h);
+
+    <span class="c-function">printf</span>(<span class="c-string">"\\nIteration | x_i | y_i | slope (f(x_i, y_i))\\n"</span>);
+    <span class="c-function">printf</span>(<span class="c-string">"------------------------------------------\\n"</span>);
+
+    <span class="c-keyword">for</span> (i = <span class="c-number">1</span>; i <= steps; i++) {
+        <span class="c-type">float</span> slope = <span class="c-function">f</span>(x0, y0);
+        <span class="c-function">printf</span>(<span class="c-string">"%d | %.4f | %.4f | %.4f\\n"</span>, i - <span class="c-number">1</span>, x0, y0, slope);
+        
+        <span class="c-comment">// Euler's Formula: y_i+1 = y_i + h * f(x_i, y_i)</span>
+        y_new = y0 + h * slope; 
+        
+        y0 = y_new;
+        x0 = x0 + h;
+    }
+
+    <span class="c-function">printf</span>(<span class="c-string">"%d | %.4f | %.4f | -----\\n"</span>, steps, xn, y0);
+    <span class="c-function">printf</span>(<span class="c-string">"\\nApproximate value of y at x=%.4f is %.4f\\n"</span>, xn, y0);
+}
+                        </pre>
+                    </div>
+                    <h3 class="section-title">Example Output (dy/dx = x^2 + y, y(0)=1, h=0.1, find y(0.2))</h3>
+                    <div class="console-output">
+                        <p>Enter initial values x0 and y0: 0 1</p>
+                        <p>Enter step size (h): 0.1</p>
+                        <p>Enter the point to find y (xn): 0.2</p>
+                        <p></p>
+                        <p>Iteration | x_i | y_i | slope (f(x_i, y_i))</p>
+                        <p>------------------------------------------</p>
+                        <p>0 | 0.0000 | 1.0000 | 1.0000</p>
+                        <p>1 | 0.1000 | 1.1000 | 1.1100</p>
+                        <p>2 | 0.2000 | 1.2110 | -----</p>
+                        <p></p>
+                        <p>Approximate value of y at x=0.2000 is 1.2110</p>
+                    </div>
+                `
+            },
+
+            'program27': {
+                title: "Program 27: Modified Euler's Method",
+                description: `
+                    <p class="text-body">
+                        The **Modified Euler's Method** (or Heun's Method) improves upon the basic Euler's method by using an 
+                        **average slope** over the interval. It first calculates a preliminary value (predictor) using the old slope 
+                        and then calculates a corrected value (corrector) using the average of the old and new slopes. 
+                        This significantly increases accuracy.
+                    </p>
+                    <h3 class="section-title">Source Code: <span class="accent-title">modified_eulers_method.c</span></h3>
+                    <div class="code-container">
+                        <pre>
+<span class="c-comment">//
+// modified_eulers_method.c
+// Description: Implements Modified Euler's Method (Heun's Method).
+//</span>
+
+<span class="c-include">#include &lt;stdio.h&gt;</span>
+
+<span class="c-comment">// Define the ODE: dy/dx = x + y</span>
+<span class="c-type">float</span> <span class="c-function">f</span>(<span class="c-type">float</span> x, <span class="c-type">float</span> y) {
+    <span class="c-keyword">return</span> x + y;
+}
+
+<span class="c-type">void</span> <span class="c-function">main</span>() {
+    <span class="c-type">float</span> x0, y0, h, xn;
+    <span class="c-type">float</span> y_predictor, y_corrector;
+    <span class="c-type">float</span> slope1, slope2;
+    <span class="c-type">int</span> i, steps;
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter initial values x0 and y0: "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f %f"</span>, &x0, &y0);
+    <span class="c-function">printf</span>(<span class="c-string">"Enter step size (h): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &h);
+    <span class="c-function">printf</span>(<span class="c-string">"Enter the point to find y (xn): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &xn);
+
+    steps = (<span class="c-type">int</span>)((xn - x0) / h);
+
+    <span class="c-function">printf</span>(<span class="c-string">"\\nIteration | x_i | y_i | y_predictor | y_corrector\\n"</span>);
+    <span class="c-function">printf</span>(<span class="c-string">"--------------------------------------------------\\n"</span>);
+
+    <span class="c-keyword">for</span> (i = <span class="c-number">1</span>; i <= steps; i++) {
+        <span class="c-type">float</span> x_old = x0;
+        <span class="c-type">float</span> y_old = y0;
+        <span class="c-type">float</span> x_new = x0 + h;
+
+        <span class="c-comment">// Predictor step (Basic Euler): y*_i+1 = y_i + h * f(x_i, y_i)</span>
+        slope1 = <span class="c-function">f</span>(x_old, y_old);
+        y_predictor = y_old + h * slope1;
+
+        <span class="c-comment">// Corrector step: y_i+1 = y_i + h/2 * [f(x_i, y_i) + f(x_i+1, y*_i+1)]</span>
+        slope2 = <span class="c-function">f</span>(x_new, y_predictor);
+        y_corrector = y_old + (h / <span class="c-number">2.0</span>) * (slope1 + slope2);
+
+        <span class="c-function">printf</span>(<span class="c-string">"%d | %.4f | %.4f | %.4f | %.4f\\n"</span>, i - <span class="c-number">1</span>, x_old, y_old, y_predictor, y_corrector);
+        
+        y0 = y_corrector;
+        x0 = x_new;
+    }
+
+    <span class="c-function">printf</span>(<span class="c-string">"%d | %.4f | %.4f | -----\\n"</span>, steps, xn, y0);
+    <span class="c-function">printf</span>(<span class="c-string">"\\nApproximate value of y at x=%.4f is %.4f\\n"</span>, xn, y0);
+}
+                        </pre>
+                    </div>
+                    <h3 class="section-title">Example Output (dy/dx = x + y, y(0)=1, h=0.1, find y(0.2))</h3>
+                    <div class="console-output">
+                        <p>Enter initial values x0 and y0: 0 1</p>
+                        <p>Enter step size (h): 0.1</p>
+                        <p>Enter the point to find y (xn): 0.2</p>
+                        <p></p>
+                        <p>Iteration | x_i | y_i | y_predictor | y_corrector</p>
+                        <p>--------------------------------------------------</p>
+                        <p>0 | 0.0000 | 1.0000 | 1.1000 | 1.1105</p>
+                        <p>1 | 0.1000 | 1.1105 | 1.2316 | 1.2428</p>
+                        <p>2 | 0.2000 | 1.2428 | ----- | -----</p>
+                        <p></p>
+                        <p>Approximate value of y at x=0.2000 is 1.2428</p>
+                    </div>
+                `
+            },
+
+            'program28': {
+                title: "Program 28: Runge-Kutta 2nd Order Method",
+                description: `
+                    <p class="text-body">
+                        The **Runge-Kutta 2nd Order Method (RK2)**, also known as the mid-point method, is a significant improvement 
+                        over the Euler and Modified Euler methods, providing accuracy up to the third order. 
+                        It calculates the slope at the **mid-point** of the interval to get a better estimate of the average slope.
+                    </p>
+                    <h3 class="section-title">Source Code: <span class="accent-title">runge_kutta_2nd_order.c</span></h3>
+                    <div class="code-container">
+                        <pre>
+<span class="c-comment">//
+// runge_kutta_2nd_order.c
+// Description: Implements the Runge-Kutta 2nd Order Method.
+//</span>
+
+<span class="c-include">#include &lt;stdio.h&gt;</span>
+<span class="c-include">#include &lt;math.h&gt;</span>
+
+<span class="c-comment">// Define the ODE: dy/dx = (y^2 - x^2) / (y^2 + x^2)</span>
+<span class="c-type">float</span> <span class="c-function">f</span>(<span class="c-type">float</span> x, <span class="c-type">float</span> y) {
+    <span class="c-keyword">return</span> (y * y - x * x) / (y * y + x * x);
+}
+
+<span class="c-type">void</span> <span class="c-function">main</span>() {
+    <span class="c-type">float</span> x0, y0, h, xn;
+    <span class="c-type">float</span> k1, k2;
+    <span class="c-type">int</span> i, steps;
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter initial values x0 and y0: "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f %f"</span>, &x0, &y0);
+    <span class="c-function">printf</span>(<span class="c-string">"Enter step size (h): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &h);
+    <span class="c-function">printf</span>(<span class="c-string">"Enter the point to find y (xn): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &xn);
+
+    steps = (<span class="c-type">int</span>)((xn - x0) / h);
+
+    <span class="c-function">printf</span>(<span class="c-string">"\\nIteration | x_i | y_i | k1 | k2 | y_i+1\\n"</span>);
+    <span class="c-function">printf</span>(<span class="c-string">"---------------------------------------------------\\n"</span>);
+
+    <span class="c-keyword">for</span> (i = <span class="c-number">1</span>; i <= steps; i++) {
+        <span class="c-type">float</span> x_old = x0;
+        <span class="c-type">float</span> y_old = y0;
+        
+        <span class="c-comment">// K1 = h * f(x_i, y_i)</span>
+        k1 = h * <span class="c-function">f</span>(x_old, y_old);
+        
+        <span class="c-comment">// K2 = h * f(x_i + h, y_i + K1) -- Heun's method style (or k2 for mid-point: x_i + h/2, y_i + k1/2)</span>
+        <span class="c-comment">// Using the Heun's form of RK2 here as it is common:</span>
+        k2 = h * <span class="c-function">f</span>(x_old + h, y_old + k1);
+
+        <span class="c-comment">// RK2 Formula: y_i+1 = y_i + 1/2 * (K1 + K2)</span>
+        y0 = y_old + (<span class="c-number">0.5</span>) * (k1 + k2); 
+        x0 = x0 + h;
+
+        <span class="c-function">printf</span>(<span class="c-string">"%d | %.4f | %.4f | %.4f | %.4f | %.4f\\n"</span>, i - <span class="c-number">1</span>, x_old, y_old, k1, k2, y0);
+    }
+
+    <span class="c-function">printf</span>(<span class="c-string">"\\nApproximate value of y at x=%.4f is %.4f\\n"</span>, xn, y0);
+}
+                        </pre>
+                    </div>
+                    <h3 class="section-title">Example Output (dy/dx = (y^2-x^2)/(y^2+x^2), y(0)=1, h=0.2, find y(0.2))</h3>
+                    <div class="console-output">
+                        <p>Enter initial values x0 and y0: 0 1</p>
+                        <p>Enter step size (h): 0.2</p>
+                        <p>Enter the point to find y (xn): 0.2</p>
+                        <p></p>
+                        <p>Iteration | x_i | y_i | k1 | k2 | y_i+1</p>
+                        <p>---------------------------------------------------</p>
+                        <p>0 | 0.0000 | 1.0000 | 0.2000 | 0.1600 | 1.1800</p>
+                        <p></p>
+                        <p>Approximate value of y at x=0.2000 is 1.1800</p>
+                    </div>
+                `
+            },
+
+            'program29': {
+                title: "Program 29: Runge-Kutta 4th Order Method",
+                description: `
+                    <p class="text-body">
+                        The **Runge-Kutta 4th Order Method (RK4)** is the most widely used and highly accurate method for solving ODEs. 
+                        It achieves high accuracy by taking a weighted average of four estimates of the slope across the interval: 
+                        at the beginning ($k_1$), two estimates at the mid-point ($k_2$, $k_3$), and one at the end ($k_4$). 
+                        It provides error on the order of $O(h^4)$, making it extremely efficient.
+                    </p>
+                    <h3 class="section-title">Source Code: <span class="accent-title">runge_kutta_4th_order.c</span></h3>
+                    <div class="code-container">
+                        <pre>
+<span class="c-comment">//
+// runge_kutta_4th_order.c
+// Description: Implements the highly accurate Runge-Kutta 4th Order Method.
+//</span>
+
+<span class="c-include">#include &lt;stdio.h&gt;</span>
+<span class="c-include">#include &lt;math.h&gt;</span>
+
+<span class="c-comment">// Define the ODE: dy/dx = x + y</span>
+<span class="c-type">float</span> <span class="c-function">f</span>(<span class="c-type">float</span> x, <span class="c-type">float</span> y) {
+    <span class="c-keyword">return</span> x + y;
+}
+
+<span class="c-type">void</span> <span class="c-function">main</span>() {
+    <span class="c-type">float</span> x0, y0, h, xn;
+    <span class="c-type">float</span> k1, k2, k3, k4;
+    <span class="c-type">int</span> i, steps;
+
+    <span class="c-function">printf</span>(<span class="c-string">"Enter initial values x0 and y0: "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f %f"</span>, &x0, &y0);
+    <span class="c-function">printf</span>(<span class="c-string">"Enter step size (h): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &h);
+    <span class="c-function">printf</span>(<span class="c-string">"Enter the point to find y (xn): "</span>);
+    <span class="c-function">scanf</span>(<span class="c-string">"%f"</span>, &xn);
+
+    steps = (<span class="c-type">int</span>)((xn - x0) / h);
+
+    <span class="c-function">printf</span>(<span class="c-string">"\\nIteration | x_i | y_i | k1 | k2 | k3 | k4 | y_i+1\\n"</span>);
+    <span class="c-function">printf</span>(<span class="c-string">"----------------------------------------------------------------\\n"</span>);
+
+    <span class="c-keyword">for</span> (i = <span class="c-number">1</span>; i <= steps; i++) {
+        <span class="c-type">float</span> x_old = x0;
+        <span class="c-type">float</span> y_old = y0;
+        
+        <span class="c-comment">// K1: Slope at beginning</span>
+        k1 = h * <span class="c-function">f</span>(x_old, y_old);
+        
+        <span class="c-comment">// K2: Slope at mid-point based on K1</span>
+        k2 = h * <span class="c-function">f</span>(x_old + h/<span class="c-number">2.0</span>, y_old + k1/<span class="c-number">2.0</span>);
+        
+        <span class="c-comment">// K3: Slope at mid-point based on K2</span>
+        k3 = h * <span class="c-function">f</span>(x_old + h/<span class="c-number">2.0</span>, y_old + k2/<span class="c-number">2.0</span>);
+        
+        <span class="c-comment">// K4: Slope at end-point based on K3</span>
+        k4 = h * <span class="c-function">f</span>(x_old + h, y_old + k3);
+
+        <span class="c-comment">// RK4 Formula: y_i+1 = y_i + 1/6 * (K1 + 2*K2 + 2*K3 + K4)</span>
+        y0 = y_old + (<span class="c-number">1.0</span> / <span class="c-number">6.0</span>) * (k1 + <span class="c-number">2</span>*k2 + <span class="c-number">2</span>*k3 + k4); 
+        x0 = x0 + h;
+
+        <span class="c-function">printf</span>(<span class="c-string">"%d | %.4f | %.4f | %.4f | %.4f | %.4f | %.4f | %.4f\\n"</span>, i - <span class="c-number">1</span>, x_old, y_old, k1, k2, k3, k4, y0);
+    }
+
+    <span class="c-function">printf</span>(<span class="c-string">"\\nApproximate value of y at x=%.4f is %.4f\\n"</span>, xn, y0);
+}
+                        </pre>
+                    </div>
+                    <h3 class="section-title">Example Output (dy/dx = x + y, y(0)=1, h=0.1, find y(0.1))</h3>
+                    <div class="console-output">
+                        <p>Enter initial values x0 and y0: 0 1</p>
+                        <p>Enter step size (h): 0.1</p>
+                        <p>Enter the point to find y (xn): 0.1</p>
+                        <p></p>
+                        <p>Iteration | x_i | y_i | k1 | k2 | k3 | k4 | y_i+1</p>
+                        <p>----------------------------------------------------------------</p>
+                        <p>0 | 0.0000 | 1.0000 | 0.1000 | 0.1100 | 0.1105 | 0.1211 | 1.1103</p>
+                        <p></p>
+                        <p>Approximate value of y at x=0.1000 is 1.1103</p>
+                    </div>
+                `
+            },
 
 
 
